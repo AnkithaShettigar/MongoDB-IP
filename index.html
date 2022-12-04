@@ -1,0 +1,196 @@
+<h4>1.Which is the command that helps in processing the data?</h4>
+
+<p>Code:-
+
+    >db.COLLECTION NAME.aggregate(AGGREGATE_OPERATION)
+</p>
+
+<h4>2.What is the command to sort the documents in ascending and descending values?</h4>
+
+<pre>
+        Code:-
+
+        >db.COLLECTION NAME.find().sort({KEY:1}) -> ASCENDING
+
+        >db.COLLECTION NAME.find().sort({KEY:-1}) -> DESCENDING
+
+        This is to the records of MongoDB. 1 & -1 are used to sort the documents. 1  is for ascending whereas -1 is for descending.
+
+</pre>
+<h4>3.Which command is used to create a collection in MongoDB?</h4>
+
+ <pre>
+    Code:-
+
+	>db.createCollection(name, options)
+
+ </pre>
+
+ <h4>4.	How to create and restore a backup?</h4>
+  <pre>
+    Code:-
+
+    To create the backup, the mongodump command is used. The server’s data will be dumped into a dump directory(/bin/dump/). Options are there to limit the data.
+
+     >mongodump --host HOST_NAME --port PORT_NAME
+
+
+     To restore the backup, a mongorestore command is used
+
+    >mongorestore
+          
+  </pre>
+
+  <h4>5.How to create a new DATABASE?</h4>
+   <pre>
+            Code:-
+            
+            To create a new database we have a command where we have to write:
+            use DATABASE_NAME
+
+   </pre>
+   <h4>6.How do you perform CRUD operations in MongoDB?</h4>
+   <pre>
+        Code:-
+
+        CRUD stands for CREATE, READ, UPDATE, DELETE
+
+        C : Create: db.collection.insert();
+        R : Read: db.collection.find();
+        U :Update: db.collection.update();
+        D : Delete: db.collection.remove({“fieldname” : ”value”});
+     
+   </pre>
+   <h4>7.What is BSON?</h4>
+   <span>BSON or binary JSON is the binary encoded format of JSON. It extends JSON and provides more data types and fields.</span>
+   <h4>8.In what ways is MongoDB better than MySQL?</h4>
+   <span>MongoDB has a flexible data model wherein the schema can be expanded based on business needs. Also, MongoDB is faster and can handle more data types to manage real-time applications better.</span>
+   <h4>8.What makes MongoDB the best?</h4>
+   <p>
+    MongoDB is considered to be the best NoSQL database because of its following features:
+
+    ●	Document-oriented (DO)
+    ●	High performance (HP)
+    ●	High availability (HA)
+    ●	Easy scalability
+    ●	Rich query language
+    
+   </p>
+   <h4>9.Which syntax is used to drop a collection in MongoDB?</h4>
+   <pre>
+    
+        Code:-
+
+        db.collection.drop()
+
+   </pre>
+
+   <h4>10.What is the use of the db command?</h4>
+   <pre>
+     Code:-
+
+      The db command gives the name of the currently selected database.
+
+   </pre>
+   <h4>11.What is the use of the db command?</h4>
+   <span>The db command gives the name of the currently selected database.</span>
+   <h4>12.What is the command to find the single record from the collection?</h4>
+   <pre>
+       Code:-
+
+      db.collectionname.findOne({"field2": "content"})
+
+   </pre>
+   <h4>13. Can MongoDB replace MySQL?</h4>
+   <span>  MongoDB is a cross-platform document-oriented and NoSQL database that allows fast changes over time in the database as the application grows but both have their pros and cons Mysql is open source, secure, and provides high flexibility whereas MongoDB provides speed, ability to handle unstructured data, etc. Considering all these points we can say yes MongoDB has the potential to replace MySQL.</span>
+   <h4>14.What is MongoClient?</h4>
+   <pre>
+    Code:-
+
+    The MongoClient is a class that helps us in making connections with the Database.
+
+        // Connect using a MongoClient instance
+        const MongoClient = require('mongodb').MongoClient;
+
+   </pre>
+   <h4>15. What is Mongoose?</h4>
+   <p>Mongoose is an npm library. It provides interaction with MongoDb with Object Relation Mapping. Basically, it helps in creating a schema for the documents. This schema helps in validating the data while building the query etc.</p>
+   <h4>16. To start with any query using mongoose, what are the steps that you have followed?</h4>
+   <pre>
+    Code:-
+
+    To start with any query with mongoose, we have to follow some steps and they are:
+
+    1. In the first step you have to create a schema for that particular document.
+
+    const studentSchema = mongoose.Schema({
+    name: String,
+    age: Number,
+    batch: String
+    })
+
+    2. Using the schema that we have created, we will have to create a model using which we can create or manipulate the document.
+
+    const Student = mongoose.model("Stucollection",studentSchema)
+    var student1 = new Student({
+    name: "John",
+    age: 20,
+    batch: "Elevation"
+    })
+
+
+
+    3. Save the created function which you can use to insert the document.
+
+    student1.save((err, result)=>{
+    if (err) console.log(err);
+    })
+
+   </pre>
+   <h4>17. What is Schema Validation in Mongoose?</h4>
+   <pre>
+    Code:-
+
+    Schema validation is a key concept while developing any backend application. Sometimes clients provide inputs which are not according to our requirements. For such cases, we need to implement the validation of any information being inserted into the database.
+
+    MongoDB provides the convenience of validating data while inserting a new entry into your database documents, such as:
+
+    1. Checking if an email is unique or not
+
+    2. Checking if a given value is in a particular range
+
+    3. Checking if the phone number is 10 digits or not.
+
+     const studentSchema = mongoose.Schema({
+        name: String,
+        age: {
+        type: Number,
+        min: 15,
+        max: 30
+        },
+
+        batch :{
+        type: String,
+        required: true
+        }
+        })
+
+   </pre>
+   <h4>18. How do you Delete a Document?</h4>
+   <pre>
+    Code:-
+
+    The CRUD API in MongoDB provides deleteOne and deleteMany for this purpose. Both of these methods take a filter document as their first parameter. The filter specifies a set of criteria to match against in removing documents.
+
+     For example:
+      > db.books.deleteOne({"_id" : 3})
+
+   </pre>
+   <h4>19. What is Sharding in MongoDB?</h4>
+   <p>In MongoDB, Sharding is the process of distributing data across multiple hosts that is achieved by splitting large data sets into small data sets across numerous MongoDB instances. Basically, Sharding is used to store data across multiple machines.</p>
+   <h4>20. What is the “__v” field in Mongoose?</h4>
+   <p>When the mongoose is created for the first time the version key is a property set on every document. The value of this key comprises of the internal revision of the document. It is understood that the name of this document is configurable. The default key is __v</p>
+
+
+
+
